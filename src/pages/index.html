@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script type="module" src="../../main.js"></script>
+        <title>Mini REACT</title>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+<script type="module">
+  const Router = function () {
+      let routes = {};
+
+      this.addRoute = function (path,name) {
+        routes[path] = name;
+      }
+
+      this.getAllroutes =  function () {
+        return routes;
+      }
+
+      this.render = function () {
+        let root  = document.getElementById('root');
+
+        var path  = Object.keys(routes).find(function(url) {
+          return  window.location.pathname === url;
+        });
+
+        if(path) {
+          const component = routes[path];
+          window.history.pushState(null,component,path);
+
+        } else {
+          root.innerHTML = '<h1> ERROR 404 </h1>';
+        }
+    }
+
+
+    };
+
+    const router = new Router();
+
+    router.addRoute('/','Home');
+    router.addRoute('/login','Login');
+    router.render();
+
+</script>
+</html>

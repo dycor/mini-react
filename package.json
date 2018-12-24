@@ -1,0 +1,24 @@
+{
+  "name": "mini-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dycor/mini-react.git"
+  },
+  "author": "CORREIA LOPES Dylan,DOMANGE Julien,VAGNAIR Alexandre,WATTIER Leo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dycor/mini-react/issues"
+  },
+  "homepage": "https://github.com/dycor/mini-react#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  }
+}

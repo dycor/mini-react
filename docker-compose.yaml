@@ -1,14 +1,12 @@
-nginx:
-  environment:
-    - SYMFONY_ENV=dev
-  image: "ngnix:latest"
-  build: docker/nginx
-  env_file:
-    - .env
-  ports:
-    - 81:80
-  links:
-    - php
-    - mysql
-  volumes:
-    - ./:/var/www/symfony/
+version: '2'
+
+services:
+  nginx:
+    environment:
+      - SYMFONY_ENV=dev
+    image: "ngnix:latest"
+    build: docker/nginx
+    ports:
+      - 81:80
+    volumes:
+      - ./:/usr/share/nginx/html/

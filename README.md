@@ -1,7 +1,10 @@
 # Mini-react
 
 ## Requirements
- Node js
+ Docker
 
 ## Run the project
-``yarn start``
+``make up``
+
+## Stop the project
+``make down``

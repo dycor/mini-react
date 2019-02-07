@@ -1,2 +1,1 @@
-console.log('hello')
-alert('hello');
+import {Martine,MartineDOM} from './martine.js';

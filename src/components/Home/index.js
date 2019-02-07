@@ -1,4 +1,6 @@
+import {Martine} from "../../../martine.js";
+
 const Home = function (name) {
-    return (`<h1>${name}</h1>`);
+    return Martine.createElement("h1", null, name)
 };
 export default Home;

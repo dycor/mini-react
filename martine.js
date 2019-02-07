@@ -1,7 +1,7 @@
 
   function anElement(element, children) {
     const anElement = document.createElement(element);
-    anElement.innerHTML = children.join(' ');
+    anElement.innerText = children.join(' ');
     return anElement;
   }
 

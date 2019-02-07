@@ -20,14 +20,12 @@ const Router = function () {
         });
 
         if(path) {
-            const component = routes[path];
-            window.history.pushState(null,component,path);
+            const componentRender = routes[path];
 
-            const componentRender  = component;
-            root.innerHTML = componentRender;
+            root.appendChild(componentRender);
 
         } else {
-            root.innerHTML = '<h1> ERROR 404 </h1>';
+            root.appendChild('<h1> ERROR 404 </h1>');
         }
     }
 };

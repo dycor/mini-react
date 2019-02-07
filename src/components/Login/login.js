@@ -1,4 +1,6 @@
+import {Martine} from "../../../martine.js";
+
 const Login = function () {
-    return ('<p>Page de login</p>');
+    return Martine.createElement("h1", null, 'azeaze')
 };
 export default Login;

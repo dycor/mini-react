@@ -1,8 +1,25 @@
 
   function anElement(element, children) {
-    const anElement = document.createElement(element);
-    anElement.innerText = children.join(' ');
-    return anElement;
+
+    if (isClass(element)) {
+      const component = new element();
+      return component.render();
+    }
+    else if (typeof(element) === 'function') {
+      return element();
+    } else {
+      const anElement = document.createElement(element);
+
+      children.forEach(child => {
+        if (typeof(child) === 'object') {
+          anElement.appendChild(child);
+        } else {
+          anElement.innerText += child;
+        }
+      });
+      return anElement;
+    }
+
   }
 
   function createElement(el, props, ...children) {
@@ -17,3 +34,8 @@
       domEl.appendChild(el);
     }
   };
+
+  function isClass(v) {
+    return typeof v === 'function' && /^\s*class\s+/.test(v.toString());
+  }
+

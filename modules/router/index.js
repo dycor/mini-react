@@ -33,7 +33,7 @@ const Router = function () {
 };
 
 export const router = new Router();
-
-router.addRoute('/', Home("test"));
-router.addRoute('/login',Login());
-router.render();
+//
+// router.addRoute('/', Home("test"));
+// router.addRoute('/login',Login());
+// router.render();

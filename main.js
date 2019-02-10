@@ -1,19 +1,16 @@
 import {router} from './modules/router/index.js'
 import {Martine,MartineDOM} from './martine.js';
 
-//Etape
-const Hello = function () {
-  return Martine.createElement('div', null, `Hello World`);
-};
-const helloWorld = Martine.createElement(Hello, null, null);
-const helloWorld2 = Martine.createElement(Hello, null, null);
-const regularDiv = Martine.createElement('div', null, `I'm just a regular div`);
+class MyButton extends Martine.Component {
 
-const parent = Martine.createElement('div', null,
-  helloWorld,
-  helloWorld2,
-  regularDiv,
-  ` I'm just a text`
-);
+  constructor(props) {
+    super(props);
+  }
 
-MartineDOM.render(parent, document.getElementById('root'));
+  render() {
+    console.log(this.state)
+    return Martine.createElement('button', {onclick: this.props.onClick}, `Click`);
+  }
+}
+const myBtn = Martine.createElement(MyButton, {onClick: () => console.log('Salut')}, null);
+MartineDOM.render(myBtn, document.getElementById('root'));

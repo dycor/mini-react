@@ -1,12 +1,12 @@
 
-  function anElement(element, children) {
+  function anElement(element, props , children) {
 
     if (isClass(element)) {
       const component = new element();
       return component.render();
     }
     else if (typeof(element) === 'function') {
-      return element();
+      return element(props);
     } else {
       const anElement = document.createElement(element);
 
@@ -14,7 +14,8 @@
         if (typeof(child) === 'object') {
           anElement.appendChild(child);
         } else {
-          anElement.innerText += child;
+          const text = document.createTextNode(child)
+          anElement.appendChild(text);
         }
       });
       return anElement;
@@ -23,15 +24,15 @@
   }
 
   function createElement(el, props, ...children) {
-    return anElement(el, children);
+    return anElement(el, props, children);
   }
 
   export const Martine = {
     createElement
   };
   export const MartineDOM = {
-    render: (el, domEl) => {
-      domEl.appendChild(el);
+    render: (element, domElement) => {
+      domElement.appendChild(element);
     }
   };
 

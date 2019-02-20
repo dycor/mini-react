@@ -28,13 +28,16 @@ function anElement(element, props , children) {
       }
     });
 
-    Object.keys(props).forEach(propName => {
-      if (/^on.*$/.test(propName)) {
-        anElement.addEventListener(propName.substring(2).toLowerCase(), props[propName]);
-      } else {
-        anElement.setAttribute(propName, props[propName]);
-      }
-    });
+    if(props) {
+      Object.keys(props).forEach(propName => {
+        if (/^on.*$/.test(propName)) {
+          anElement.addEventListener(propName.substring(2).toLowerCase(), props[propName]);
+        } else {
+          anElement.setAttribute(propName, props[propName]);
+        }
+      });
+    }
+
     return anElement;
   }
 

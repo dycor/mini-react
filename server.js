@@ -1,15 +1,9 @@
-var express = require('express');
-var app = express();
-var morgan = require('morgan');
+var watch = require('node-watch');
+var fs = require('fs');
 
-const port = 777;
+watch('src/components', { recursive: true }, function(evt, name) {
+  console.log('%s changed.', name);
 
-app.use(morgan('dev'));
-
-app.get('*', function(req, res) {
-  res.sendFile(__dirname + '/src/pages/index.html');
-});
-
-app.listen(port, function(){
-  console.log('Listening on port '+port);
+  // var contents = fs.readFileSync(name, 'utf8');
+  // console.log(contents);
 });

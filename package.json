@@ -19,6 +19,7 @@
   "homepage": "https://github.com/dycor/mini-react#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "node-watch": "^0.6.0"
   }
 }

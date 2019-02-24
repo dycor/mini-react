@@ -1,24 +1,25 @@
-import {router} from './modules/router/index.js'
 import {Martine,MartineDOM} from './martine.js';
 
-class TodoList extends Martine.Component {
+class Counter extends Martine.Component {
 
   constructor(props) {
     super(props);
-    this.setState({'test':'test'});
+    this.state = { count: 0 }
   }
 
-  onClick() {
-    console.log('salut22')
-  }
+  onClick = () => {
+    const { count } = this.state;
+    this.setState({count : count + 1});
+  };
 
   render() {
-    console.log(this.state)
-    const title = Martine.createElement('h1',null,'To do list');
-    const button =  Martine.createElement('button', {onclick: this.onClick}, `Click`);
-    const input =  Martine.createElement('input', {id: 'item-value'});
-    return  Martine.createElement('div',null,title,input,button);
+    const { count } = this.state;
+
+    return  Martine.createElement('div',null,
+      Martine.createElement('h1',null,'Counter'),
+      Martine.createElement('label', null, count),
+      Martine.createElement('button', {onclick: this.onClick}, `Click`),
+    );
   }
 }
-const myBtn = Martine.createElement(TodoList, null, null);
-MartineDOM.render(myBtn, document.getElementById('root'));
+MartineDOM.render(Martine.createElement(Counter), document.getElementById('root'));

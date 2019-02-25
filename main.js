@@ -1,25 +1,4 @@
 import {Martine,MartineDOM} from './martine.js';
+import { SayMyName } from './src/components/SayMyName/index.js';
 
-class Counter extends Martine.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = { count: 0 }
-  }
-
-  onClick = () => {
-    const { count } = this.state;
-    this.setState({count : count + 1});
-  };
-
-  render() {
-    const { count } = this.state;
-
-    return  Martine.createElement('div',null,
-      Martine.createElement('h1',null,'Counter'),
-      Martine.createElement('label', null, count),
-      Martine.createElement('button', {onclick: this.onClick}, `Click`),
-    );
-  }
-}
-MartineDOM.render(Martine.createElement(Counter), document.getElementById('root'));
+MartineDOM.render(Martine.createElement(SayMyName), document.getElementById('root'));

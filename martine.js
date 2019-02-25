@@ -5,16 +5,42 @@ class Component {
   constructor(props) {
     this.props = props;
     this.state  = {};
-    this.arrayValueType = {};
+    this.arrayTypeCheck = {};
+    this.arrayValueCheck = {};
   }
   setState(state) {
     this.state = { ...this.state, ...state};
     shouldUpdate();
   }
+    setArrayTypeCheck(array){
+        this.arrayTypeCheck = array;
+    }
+    setArrayValueCheck(array){
+        this.arrayValueCheck = array;
+    }
+    propType(){
+        console.log(type_check_v1({ "prop1": 1 }, "object"));
+        for(let value in this.arrayTypeCheck) {
+            if(this.arrayValueCheck.hasOwnProperty(value) && this.arrayTypeCheck.hasOwnProperty(value)){
+                if(!type_check(
+                    this.arrayValueCheck[value],
+                    {
+                        type: this.arrayTypeCheck[value],
+                        value: this.arrayValueCheck[value]
+                    }
+                )){
+                    console.log('un des types nest pas bon');
+                    return false;
+                }
+                return false;
+            }
+        }
+        return true;
+    }
 }
 function shouldUpdate() {
   while (rootDOMElement.hasChildNodes()) {
-    rootDOMElement.removeChild(rootDOMElement.lastChild);
+      rootDOMElement.removeChild(rootDOMElement.lastChild);
   }
   MartineDOM.render(rootVDom, rootDOMElement);
 }

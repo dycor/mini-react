@@ -5,8 +5,6 @@ class Component {
   constructor(props) {
     this.props = props;
     this.state  = {};
-    this.arrayTypeCheck = {};
-    this.arrayValueCheck = {};
   }
   setState(state) {
     this.state = { ...this.state, ...state};

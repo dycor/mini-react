@@ -5,6 +5,7 @@ class Component {
   constructor(props) {
     this.props = props;
     this.state  = {};
+    this.arrayValueType = {};
   }
   setState(state) {
     this.state = { ...this.state, ...state};

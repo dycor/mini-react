@@ -1,5 +1,8 @@
-export class Welcome  {
+import {Martine} from "../../../martine.js";
+
+export class Welcome extends Martine.Component  {
   render() {
-    return '<h1>Hello, {this.props.name}</h1>';
+     return  Martine.createElement('div',null,
+         Martine.createElement('h1', null, 'Welcome'));
   }
 }

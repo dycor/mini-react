@@ -1,6 +1,8 @@
 import {Martine} from "../../../martine.js";
 
-const Home = function (name) {
-    return Martine.createElement("h1", null, name)
-};
-export default Home;
+export class Home extends Martine.Component  {
+    render() {
+        return  Martine.createElement('div',null,
+            Martine.createElement('h1', null, 'Home'));
+    }
+}

@@ -56,6 +56,12 @@ function createElement(el, props, ...children) {
   return anElement(el, props, children);
 }
 
+String.prototype.interpolate = function(result){
+  return this.replace(/\{\{([^}]+)\}\}/g, function(dummy, v){
+    return result[v];
+  });
+};
+
 export const Martine = {
   createElement,
   Component

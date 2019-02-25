@@ -5,13 +5,12 @@ export class SayMyName extends Martine.Component {
   constructor(props) {
     super(props);
     this.state = { name :''}
-    this.setArrayTypeCheck([
+    this.propType([
         'string',
         'object',
         'string',
         'number',
     ]);
-    this.propType();
   }
 
   onInput = (e) => {

@@ -12,17 +12,14 @@ class Component {
     this.state = { ...this.state, ...state};
     shouldUpdate();
   }
-    setArrayTypeCheck(array){
-        this.arrayTypeCheck = array;
-    }
-    propType(){
+    propType(arrayType){
         console.log(type_check_v1({ "prop1": 1 }, "object"));
-        for(let value in this.arrayTypeCheck) {
-            if(this.arrayValueCheck.hasOwnProperty(value) && this.arrayTypeCheck.hasOwnProperty(value)){
+        for(let value in arrayType) {
+            if(arrayType.hasOwnProperty(value)){
                 if(!type_check(
                     this.arrayValueCheck[value],
                     {
-                        type: this.arrayTypeCheck[value],
+                        type: arrayType[value],
                         value: this.arrayValueCheck[value]
                     }
                 )){

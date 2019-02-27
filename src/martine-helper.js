@@ -13,17 +13,11 @@ export function propType(props, arrayType){
                         value: props[value]
                     }
                 )){
-                    console.error('Warning : Il y a un problème de typage');
-                    console.error(props);
-                    console.error(arrayType);
-                    return false;
+                    console.error('Error: type of "' + value + '" is "' + typeof props[value] + '", but the entered type is "' + arrayType[value] + '".');
                 }
-                return true;
+            } else {
+                console.error('Error: Key "'+ value +'" does\'t exist in props array.')
             }
-            console.error('Warning : Il y a un problème de correspondance dans vos clefs');
-            console.error(props);
-            console.error(arrayType);
-            return false;
         }
     }
     return true;

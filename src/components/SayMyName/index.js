@@ -13,14 +13,13 @@ export class SayMyName extends Martine.Component {
 
   render() {
     const { name } = this.state;
-    /*
-    Martine.propType(
+    /*Martine.propType(
         this.props,
         {
-          title:'string'
+          name:'number',
+          test:'string',
         }
-    );
-    */
+    );*/
     return  Martine.createElement('div',null,
       Martine.createElement('h1',null,'Say My name'),
       Martine.createElement('input', {oninput: (e) => this.onInput(e), value :name}),

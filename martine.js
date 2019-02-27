@@ -1,4 +1,4 @@
-import { isClass } from "./src/martine-helper.js";
+import { isClass, propType } from "./src/martine-helper.js";
 let rootDOMElement, rootVDom;
 
 class Component {
@@ -10,25 +10,7 @@ class Component {
     this.state = { ...this.state, ...state};
     shouldUpdate();
   }
-    propType(arrayType){
-        console.log(type_check_v1({ "prop1": 1 }, "object"));
-        for(let value in arrayType) {
-            if(arrayType.hasOwnProperty(value)){
-                if(!type_check(
-                    this.arrayValueCheck[value],
-                    {
-                        type: arrayType[value],
-                        value: this.arrayValueCheck[value]
-                    }
-                )){
-                    console.log('un des types nest pas bon');
-                    return false;
-                }
-                return false;
-            }
-        }
-        return true;
-    }
+
 }
 function shouldUpdate() {
   while (rootDOMElement.hasChildNodes()) {
@@ -77,6 +59,7 @@ function createElement(el, props, ...children) {
 
 export const Martine = {
   createElement,
+    propType,
   Component
 };
 
@@ -90,70 +73,3 @@ export const MartineDOM = {
     domElement.appendChild(currentDOM);
   }
 };
-
-
-
-function type_check_v1(data, type) {
-    switch(typeof data) {
-        case "number":
-        case "string":
-        case "boolean":
-        case "undefined":
-        case "function":
-            return type === typeof data;
-        case "object":
-            switch(type) {
-                case "null":
-                    return data === null;
-                case "array":
-                    return Array.isArray(data);
-                default:
-                    return data !== null && !Array.isArray(data);
-            }
-
-    }
-
-    return false;
-}
-function type_check_v2(data, conf) {
-    for (let key of Object.keys(conf)) {
-        switch (key) {
-            case 'type':
-                if (!type_check_v1(data, conf[key])) return false;
-                break;
-            case 'value':
-                if (JSON.stringify(data) !== JSON.stringify(conf[key])) return false;
-                break;
-            case 'enum':
-                let valid = false;
-                for (let value of conf[key]) {
-                    valid = type_check_v2(data, {value});
-                    if (valid) break;
-                }
-                if(!valid) return false;
-        }
-    }
-
-    return true;
-}
-function type_check(data, conf) {
-    for (let key of Object.keys(conf)) {
-        switch (key) {
-            case 'type':
-            case 'value':
-            case 'enum':
-                let newConf = {};
-                newConf[key] = conf[key];
-                if (!type_check_v2(data, newConf)) return false;
-                break;
-            case 'properties':
-                for (let prop of Object.keys(conf[key])) {
-                    if (data[prop] === undefined) return false;
-                    if (!type_check(data[prop], conf[key][prop])) return false;
-                }
-                break;
-        }
-    }
-
-    return true;
-}

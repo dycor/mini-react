@@ -1,4 +1,4 @@
-import { isClass } from "./src/martine-helper.js";
+import { isClass, propType } from "./src/martine-helper.js";
 let rootDOMElement, rootVDom;
 
 class Component {
@@ -10,10 +10,11 @@ class Component {
     this.state = { ...this.state, ...state};
     shouldUpdate();
   }
+
 }
 function shouldUpdate() {
   while (rootDOMElement.hasChildNodes()) {
-    rootDOMElement.removeChild(rootDOMElement.lastChild);
+      rootDOMElement.removeChild(rootDOMElement.lastChild);
   }
   MartineDOM.render(rootVDom, rootDOMElement);
 }
@@ -58,6 +59,7 @@ function createElement(el, props, ...children) {
 
 export const Martine = {
   createElement,
+    propType,
   Component
 };
 
@@ -71,5 +73,3 @@ export const MartineDOM = {
     domElement.appendChild(currentDOM);
   }
 };
-
-

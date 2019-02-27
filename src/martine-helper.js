@@ -5,7 +5,7 @@ export function isClass(elt) {
 export function propType(props, arrayType){
     if(props){
         for(let value in arrayType) {
-            if(arrayType.hasOwnProperty(value)){
+            if(props.hasOwnProperty(value)){
                 if(!type_check(
                     props[value],
                     {
@@ -13,11 +13,17 @@ export function propType(props, arrayType){
                         value: props[value]
                     }
                 )){
-                    console.log('un des types nest pas bon');
+                    console.error('Warning : Il y a un problème de typage');
+                    console.error(props);
+                    console.error(arrayType);
                     return false;
                 }
-                return false;
+                return true;
             }
+            console.error('Warning : Il y a un problème de correspondance dans vos clefs');
+            console.error(props);
+            console.error(arrayType);
+            return false;
         }
     }
     return true;

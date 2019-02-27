@@ -1,7 +1,7 @@
-import {Martine} from "../../martine.js";
 import {SayMyName} from "../../src/components/SayMyName/index.js";
 import {Welcome} from "../../src/components/Welcome/index.js";
 import {Home} from "../../src/components/Home/index.js";
+import {MartineDOM} from "../../martine.js";
 
 
 const Router = function () {
@@ -17,22 +17,18 @@ const Router = function () {
 
 
     this.getRender = function (className) {
-        return new className().render()
+        MartineDOM.render(new className(), MartineDOM.getRoot() )
     };
 
     this.render = function () {
-        let root  = document.getElementById('root');
         var path  = Object.keys(routes).find(function(url) {
             return  window.location.pathname === url;
         });
 
         if(path) {
-            const componentRender = this.getRender(routes[path]);
-
-            root.appendChild(componentRender);
-
+          this.getRender(routes[path]);
         } else {
-            root.appendChild(Martine.createElement('h1', null, 'ERROR 404'));
+            MartineDOM.render('h1', null, 'ERROR 404');
         }
     };
 };

@@ -2,6 +2,7 @@ import {Martine} from "../../martine.js";
 import {SayMyName} from "../../src/components/SayMyName/index.js";
 import {Welcome} from "../../src/components/Welcome/index.js";
 import {Home} from "../../src/components/Home/index.js";
+import {PropTypeTest} from "../../src/components/PropTypeTest/index.js";
 
 
 const Router = function () {
@@ -45,3 +46,4 @@ export const router = new Router();
 router.addRoute('/', Home);
 router.addRoute('/say-my-name', SayMyName);
 router.addRoute('/welcome', Welcome);
+router.addRoute('/propTypeTest', PropTypeTest);

@@ -1,5 +1,6 @@
 import { isClass, propType } from "./src/martine-helper.js";
 let rootDOMElement, rootVDom;
+const MARTINE_CLASS = 'MARTINE_CLASS';
 
 class Component {
   constructor(props) {
@@ -25,7 +26,9 @@ function shouldUpdate() {
 function anElement(element, props , children) {
 
   if (isClass(element)) {
-    return new element(props);
+    let classElt = new element(props);
+    classElt.type = MARTINE_CLASS;
+    return classElt ;
   }
   else if (typeof(element) === 'function') {
     return element(props);
@@ -39,7 +42,10 @@ function anElement(element, props , children) {
   }
   
   function appendChild(child,anElement) {
-    if (typeof(child) === 'object') {
+    if (child.type === MARTINE_CLASS) {
+      anElement.appendChild(child.render());
+    }
+    else if (typeof(child) === 'object') {
       anElement.appendChild(child);
     } else {
       const text = document.createTextNode(child)

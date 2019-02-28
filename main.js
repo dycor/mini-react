@@ -1,3 +1,3 @@
 import {router} from "./modules/router/index.js";
 
-router.render();
+router.render(document.getElementById('root'));

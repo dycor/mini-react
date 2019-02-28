@@ -16,7 +16,7 @@ export function propType(props, arrayType){
                     console.error('Error: type of "' + value + '" is "' + typeof props[value] + '", but the entered type is "' + arrayType[value] + '".');
                 }
             } else {
-                console.error('Error: Key "'+ value +'" does\'t exist in props array.')
+                console.error('Error: Key "'+ value +'" doesn\'t exist in props array.')
             }
         }
     }
@@ -30,7 +30,7 @@ Object.prototype.prop_access = function(path) {
   for (let i = 0; i< pathArray.length; i++) {
       object = object[pathArray[i]];
       if(object === undefined) {
-          console.log(pathArray.slice(0, i+1).join('.') + " don't exist");
+          console.error(pathArray.slice(0, i+1).join('.') + " don't exist");
           return null;
       }
   }

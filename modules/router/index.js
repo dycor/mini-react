@@ -17,7 +17,7 @@ const Router = function () {
 
 
     this.getRender = function (className) {
-        MartineDOM.render(new className(), MartineDOM.getRoot() )
+        MartineDOM.render(new className(), document.getElementById("root"))
     };
 
     this.render = function () {

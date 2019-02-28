@@ -62,10 +62,6 @@ export const Martine = {
 };
 
 export const MartineDOM = {
-  getRoot: () => {
-    return document.getElementById("root")
-  },
-
   render: (element, domElement) => {
     rootVDom = element;
     rootDOMElement = domElement;

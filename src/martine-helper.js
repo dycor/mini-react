@@ -23,6 +23,24 @@ export function propType(props, arrayType){
     return true;
 }
 
+Object.prototype.prop_access = function(path) {
+  if(!path) return this;
+  const pathArray = path.split(".");
+  let object = this;
+  for (let i = 0; i< pathArray.length; i++) {
+      object = object[pathArray[i]];
+      if(object === undefined) {
+          console.log(pathArray.slice(0, i+1).join('.') + " don't exist");
+          return null;
+      }
+  }
+  
+  return object;
+}
+
+String.prototype.interpolate = function(result){
+  return this.replace(/\{\{([^}]+)\}\}/g, (dummy, v) => params.prop_access(v,result));
+};
 
 
 /*

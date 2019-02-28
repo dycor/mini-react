@@ -33,7 +33,7 @@ function anElement(element, props , children) {
     const anElement = document.createElement(element);
 
     children.forEach(child => appendChild(child,anElement));
-    props ? Object.keys(props).forEach(prop => appendProp(prop,props,anElement)) :null ;
+    if(props) Object.keys(props).forEach(prop => appendProp(prop,props,anElement));
 
     return anElement;
   }

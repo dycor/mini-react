@@ -62,10 +62,13 @@ export const Martine = {
 };
 
 export const MartineDOM = {
+  getRoot: () => {
+    return document.getElementById("root")
+  },
+
   render: (element, domElement) => {
     rootVDom = element;
     rootDOMElement = domElement;
-
     const currentDOM = typeof (rootVDom) === 'object' ? rootVDom.render() : rootVDom;
 
     domElement.appendChild(currentDOM);

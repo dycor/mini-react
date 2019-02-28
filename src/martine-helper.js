@@ -3,7 +3,6 @@ export function isClass(elt) {
 }
 
 export function propType(props, arrayType){
-    console.log(arrayType)
     if(props){
         for(let value in arrayType) {
             if(value !== 'prop_access') {

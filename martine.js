@@ -75,7 +75,7 @@ export const MartineDOM = {
 
     domElement.appendChild(currentDOM);
     if (activeEltId) {
-      console.log( currentDOM.querySelector(`#${activeEltId}`).focus())
+      currentDOM.querySelector(`#${activeEltId}`).focus()
     }
 
   }

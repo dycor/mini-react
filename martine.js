@@ -13,10 +13,13 @@ class Component {
 
 }
 function shouldUpdate() {
+  const activeEltId = document.activeElement ? document.activeElement.id : null;
+
   while (rootDOMElement.hasChildNodes()) {
       rootDOMElement.removeChild(rootDOMElement.lastChild);
   }
-  MartineDOM.render(rootVDom, rootDOMElement);
+
+  MartineDOM.render(rootVDom, rootDOMElement,activeEltId);
 }
 
 function anElement(element, props , children) {
@@ -64,12 +67,16 @@ export const Martine = {
 };
 
 export const MartineDOM = {
-  render: (element, domElement) => {
+  render: (element, domElement,activeEltId) => {
     rootVDom = element;
     rootDOMElement = domElement;
 
     const currentDOM = typeof (rootVDom) === 'object' ? rootVDom.render() : rootVDom;
 
     domElement.appendChild(currentDOM);
+    if (activeEltId) {
+      console.log( currentDOM.querySelector(`#${activeEltId}`).focus())
+    }
+
   }
 };

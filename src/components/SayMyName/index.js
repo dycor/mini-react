@@ -22,7 +22,7 @@ export class SayMyName extends Martine.Component {
     );*/
     return  Martine.createElement('div',null,
       Martine.createElement('h1',null,'Say My name'),
-      Martine.createElement('input', {oninput: (e) => this.onInput(e), value :name}),
+      Martine.createElement('input', {id : 'myname',oninput: (e) => this.onInput(e), value :name}),
       Martine.createElement('label', null,'My name is '+name),
     );
   }

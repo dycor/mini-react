@@ -3,21 +3,25 @@ export function isClass(elt) {
 }
 
 export function propType(props, arrayType){
+    console.log(arrayType)
     if(props){
         for(let value in arrayType) {
-            if(props.hasOwnProperty(value)){
+            if(value !== 'prop_access') {
+              if(props.hasOwnProperty(value)){
                 if(!type_check(
-                    props[value],
-                    {
-                        type: arrayType[value],
-                        value: props[value]
-                    }
+                  props[value],
+                  {
+                    type: arrayType[value],
+                    value: props[value]
+                  }
                 )){
-                    console.error('Error: type of "' + value + '" is "' + typeof props[value] + '", but the entered type is "' + arrayType[value] + '".');
+                  console.error('Error: type of "' + value + '" is "' + typeof props[value] + '", but the entered type is "' + arrayType[value] + '".');
                 }
-            } else {
+              } else {
                 console.error('Error: Key "'+ value +'" doesn\'t exist in props array.')
+              }
             }
+
         }
     }
     return true;

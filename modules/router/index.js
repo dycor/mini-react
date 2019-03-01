@@ -21,23 +21,16 @@ const Router = function () {
 
 
     this.getRender = function (className,rootDom) {
-        // return new className().render()
       MartineDOM.render(new className(), rootDom);
 
     };
 
     this.render = function (rootDom) {
 
-        var path  = Object.keys(routes).find(function(url) {
-            return  window.location.pathname === url;
-        });
+        var path  = Object.keys(routes).find( url => window.location.pathname === url);
 
         if(path) {
           const componentRender = this.getRender(routes[path],rootDom);
-          // console.log('componentRender',componentRender)
-          // console.log(routes[path])
-          // console.log(rootDom)
-          // rootDom.appendChild(componentRender);
 
         } else {
           rootDom.appendChild(Martine.createElement('h1', null, 'ERROR 404'));

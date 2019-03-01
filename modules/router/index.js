@@ -49,7 +49,6 @@ const Router = function () {
 
 export const router = new Router();
 
-router.addRoute('/', Home);
+router.addRoute('/', Welcome);
 router.addRoute('/say-my-name', SayMyName);
-router.addRoute('/welcome', Welcome);
-router.addRoute('/propTypeTest', PropTypeTest);
+router.addRoute('/props', PropTypeTest);

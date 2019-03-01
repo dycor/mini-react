@@ -3,8 +3,9 @@ import {MartineDOM} from "../../martine.js";
 
 import {SayMyName} from "../../src/components/SayMyName/index.js";
 import {Welcome} from "../../src/components/Welcome/index.js";
-import {Home} from "../../src/components/Home/index.js";
 import {PropTypeTest} from "../../src/components/PropTypeTest/index.js";
+import {Router1} from "../../src/components/Router/index.js";
+import {Counter} from "../../src/components/Counter/index.js";
 
 
 const Router = function () {
@@ -52,3 +53,5 @@ export const router = new Router();
 router.addRoute('/', Welcome);
 router.addRoute('/say-my-name', SayMyName);
 router.addRoute('/props', PropTypeTest);
+router.addRoute('/router', Router1);
+router.addRoute('/counter', Counter);

@@ -16,10 +16,10 @@ export class Counter extends Martine.Component {
   render() {
     const { count } = this.state;
 
-    return  Martine.createElement('div',null,
+    return  Martine.createElement('div',{style: 'text-align: center; color: #fff'},
       Martine.createElement('h1',null,'Counter'),
       Martine.createElement('label', null, count),
-      Martine.createElement('button', {onclick: this.onClick}, `Click`),
+      Martine.createElement('button', {onclick: this.onClick, class: 'pure-button', style: 'margin-left:20px'}, `Click`),
     );
   }
 }

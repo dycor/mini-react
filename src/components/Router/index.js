@@ -1,0 +1,13 @@
+import {Martine} from "../../../martine.js";
+
+export class Router1 extends Martine.Component {
+    render() {
+
+        return  Martine.createElement('div',null,
+            Martine.createElement('h1',{style: 'text-align: center; color: #fff'},'Routage'),
+            Martine.createElement('iframe',{src : 'https://carbon.now.sh/embed/?bg=rgba(72%2C175%2C226%2C1)&t=blackboard&wt=none&l=auto&ds=true&dsyoff=0px&dsblur=100px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fm=Fira%20Code&fs=14px&lh=152%25&si=false&code=const%2520Router%2520%253D%2520function%2520()%2520%257B%250A%2520%2520%2520%2520let%2520routes%2520%253D%2520%257B%257D%253B%250A%250A%2520%2520%2520%2520this.addRoute%2520%253D%2520function%2520(path%252CcomponentClass)%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520routes%255Bpath%255D%2520%253D%2520componentClass%253B%250A%2520%2520%2520%2520%257D%253B%250A%250A%2520%2520%2520%2520this.getAllroutes%2520%253D%2520%2520function%2520()%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520return%2520routes%253B%250A%2520%2520%2520%2520%257D%253B%250A%250A%250A%2520%2520%2520%2520this.getRender%2520%253D%2520function%2520(className%252CrootDom)%2520%257B%250A%2520%2520%2520%2520%2520%2520MartineDOM.render(new%2520className()%252C%2520rootDom)%253B%250A%2520%2520%2520%2520%257D%253B%250A%250A%2520%2520%2520%2520this.render%2520%253D%2520function%2520(rootDom)%2520%257B%250A%250A%2520%2520%2520%2520%2520%2520%2520%2520var%2520path%2520%2520%253D%2520Object.keys(routes).find(function(url)%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520return%2520%2520window.location.pathname%2520%253D%253D%253D%2520url%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%257D)%253B%250A%250A%2520%2520%2520%2520%2520%2520%2520%2520if(path)%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520const%2520componentRender%2520%253D%2520this.getRender(routes%255Bpath%255D%252CrootDom)%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%257D%2520else%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520rootDom.appendChild(Martine.createElement(\'h1\'%252C%2520null%252C%2520\'ERROR%2520404\'))%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%257D%253B%250A%257D%253B&es=2x&wm=false', style: 'transform:scale(0.7); width:1024px; height:815px; border:0; overflow:hidden;display:block;margin:0 auto', sandbox: 'allow-scripts allow-same-origin"'}),
+            Martine.createElement('a', {class: 'pure-button pure-button-primary', href: '/counter'}, 'Compteur')
+        );
+    }
+
+}

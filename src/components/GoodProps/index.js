@@ -15,7 +15,7 @@ export class GoodProps extends Martine.Component {
 
   render() {
 
-    return  Martine.createElement('div',null,
+    return  Martine.createElement('div',{style: 'background: #fff;text-align: center;color: #48AFE2; padding:20px 0'},
       Martine.createElement('h2', null,'Good Props'),
       Martine.createElement('label', null,'age : '),
       Martine.createElement('span', null,this.props.age),
